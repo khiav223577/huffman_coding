@@ -21,6 +21,7 @@ class << HuffmanCoding
 
     result_binary_string = input_array.map{|char| code_table[char] }.join
     last_byte_bits = result_binary_string.size % 8
+    last_byte_bits = 8 if last_byte_bits == 0
     binary = result_binary_string.scan(/.{1,8}/).map{|s| s.to_i(2) }.pack('C*')
     return binary, last_byte_bits, code_table
   end

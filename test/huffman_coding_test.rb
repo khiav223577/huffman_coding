@@ -9,10 +9,31 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
   end
 
   def test_encode
+    binary, last_byte_bits, mapping = HuffmanCoding.encode('ABCDEFGHH'.each_char)
+
+    assert_equal [250, 198, 136, 0], binary.bytes
+    assert_equal 3, last_byte_bits
+
+    expected_mapping = {
+      'A' => '111',
+      'B' => '110',
+      'C' => '101',
+      'D' => '100',
+      'E' => '011',
+      'F' => '010',
+      'G' => '001',
+      'H' => '000',
+    }.freeze
+    assert_equal expected_mapping, mapping
+
+    assert_equal 'ABCDEFGHH', HuffmanCoding.decode(binary, last_byte_bits, mapping)
+  end
+
+  def test_encode_when_last_byte_have_8_bits
     binary, last_byte_bits, mapping = HuffmanCoding.encode('A short test.'.each_char)
 
     assert_equal [54, 136, 66, 119, 86], binary.bytes
-    assert_equal 0, last_byte_bits
+    assert_equal 8, last_byte_bits
 
     expected_mapping = {
       'e' => '111',
@@ -27,7 +48,7 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
     }.freeze
     assert_equal expected_mapping, mapping
 
-    assert_equal 'A short test.', HuffmanCoding.decode(binary, last_byte_bits, expected_mapping)
+    assert_equal 'A short test.', HuffmanCoding.decode(binary, last_byte_bits, mapping)
   end
 
   def test_encode_with_only_one_kind_of_char
