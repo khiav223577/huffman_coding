@@ -7,7 +7,7 @@
 [![Test Coverage](https://codeclimate.com/github/khiav223577/huffman_coding/badges/coverage.svg)](https://codeclimate.com/github/khiav223577/huffman_coding/coverage)
 
 ## Supports
-- Ruby 2.2 ~ 2.7
+- Ruby 1.8 ~ 2.7
 
 ## Installation
 
