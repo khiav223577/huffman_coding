@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'huffman_coding/version'
 require 'huffman_coding/level_nodes'
 require 'huffman_coding/node'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'huffman_coding/utils'
 
 class << HuffmanCoding::Utils
