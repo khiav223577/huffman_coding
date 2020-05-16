@@ -1,17 +1,10 @@
 require 'huffman_coding/version'
 require 'huffman_coding/level_nodes'
 require 'huffman_coding/node'
-
-module Enumerable
-  def tally
-    hash = Hash.new(0)
-    each{|key| hash[key] += 1 }
-    return hash
-  end
-end
+require 'huffman_coding/utils/tally'
 
 class << HuffmanCoding
-  def encode(input_array, frequencies = input_array.tally)
+  def encode(input_array, frequencies = HuffmanCoding::Utils.tally(input_array))
     if frequencies.size == 1
       code_table = { frequencies.keys[0] => '0' }
     else

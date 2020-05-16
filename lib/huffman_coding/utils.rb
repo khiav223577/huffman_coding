@@ -1,0 +1,2 @@
+module HuffmanCoding::Utils
+end
