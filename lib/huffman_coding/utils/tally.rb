@@ -2,8 +2,8 @@ require 'huffman_coding/utils'
 
 class << HuffmanCoding::Utils
   if Enumerable.method_defined?(:tally)
-    def tally(array)
-      array.tally
+    def tally(enumerable)
+      enumerable.tally
     end
   else
     def tally(enumerable)
