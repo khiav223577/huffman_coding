@@ -22,15 +22,15 @@ class << HuffmanCoding
   end
 
   def decode(binary, last_byte_bits, code_table)
-    text = ''
+    text = String.new
     code_table = code_table.invert
-    previous = ''
+    previous = String.new
 
     add_binary_char = proc do |binary_char|
       previous << binary_char
       if (char = code_table[previous])
         text << char
-        previous = ''
+        previous = String.new
       end
     end
 
