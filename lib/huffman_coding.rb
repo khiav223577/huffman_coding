@@ -1,4 +1,15 @@
 require 'huffman_coding/version'
+require 'huffman_coding/level_nodes'
+require 'huffman_coding/node'
+
+module Enumerable
+  def tally
+    hash = Hash.new(0)
+    each{|key| hash[key] += 1 }
+    return hash
+  end
+end
+
 
 class << HuffmanCoding
   def encode(input_array, frequencies = input_array.tally)
