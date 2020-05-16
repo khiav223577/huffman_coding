@@ -1,10 +1,10 @@
-# gem_template
+# huffman_coding
 
-[![Gem Version](https://img.shields.io/gem/v/gem_template.svg?style=flat)](http://rubygems.org/gems/gem_template)
-[![Build Status](https://travis-ci.com/khiav223577/gem_template.svg?branch=master)](https://travis-ci.org/khiav223577/gem_template)
-[![RubyGems](http://img.shields.io/gem/dt/gem_template.svg?style=flat)](http://rubygems.org/gems/gem_template)
-[![Code Climate](https://codeclimate.com/github/khiav223577/gem_template/badges/gpa.svg)](https://codeclimate.com/github/khiav223577/gem_template)
-[![Test Coverage](https://codeclimate.com/github/khiav223577/gem_template/badges/coverage.svg)](https://codeclimate.com/github/khiav223577/gem_template/coverage)
+[![Gem Version](https://img.shields.io/gem/v/huffman_coding.svg?style=flat)](http://rubygems.org/gems/huffman_coding)
+[![Build Status](https://travis-ci.com/khiav223577/huffman_coding.svg?branch=master)](https://travis-ci.org/khiav223577/huffman_coding)
+[![RubyGems](http://img.shields.io/gem/dt/huffman_coding.svg?style=flat)](http://rubygems.org/gems/huffman_coding)
+[![Code Climate](https://codeclimate.com/github/khiav223577/huffman_coding/badges/gpa.svg)](https://codeclimate.com/github/khiav223577/huffman_coding)
+[![Test Coverage](https://codeclimate.com/github/khiav223577/huffman_coding/badges/coverage.svg)](https://codeclimate.com/github/khiav223577/huffman_coding/coverage)
 
 ## Supports
 - Ruby 2.2 ~ 2.7
@@ -13,7 +13,7 @@
 ## Installation
 
 ```ruby
-gem 'gem_template'
+gem 'huffman_coding'
 ```
 
 And then execute:
@@ -22,7 +22,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install gem_template
+    $ gem install huffman_coding
 
 ## Usage
 
@@ -35,7 +35,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/khiav223577/gem_template. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/khiav223577/huffman_coding. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

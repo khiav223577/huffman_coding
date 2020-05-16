@@ -2,7 +2,7 @@ require 'simplecov'
 SimpleCov.start
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'gem_template'
+require 'huffman_coding'
 require 'active_record'
 
 require 'minitest/autorun'
