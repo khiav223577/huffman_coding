@@ -13,4 +13,3 @@ class << HuffmanCoding::Utils
     end
   end
 end
-
