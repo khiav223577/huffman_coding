@@ -9,7 +9,7 @@ require 'minitest/autorun'
 
 ActiveRecord::Base.establish_connection(
   'adapter'  => 'sqlite3',
-  'database' => ':memory:',
+  'database' => ':memory:'
 )
 require 'lib/seeds'
 
