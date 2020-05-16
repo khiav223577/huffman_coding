@@ -11,7 +11,7 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
   def test_encode
     binary, last_byte_bits, mapping = HuffmanCoding.encode('ABCDEFGHH'.each_char)
 
-    assert_equal [250, 198, 136, 0], binary.bytes
+    assert_equal "\xFA\xC6\x88\x00".force_encoding('BINARY'), binary
     assert_equal 3, last_byte_bits
 
     expected_mapping = {
@@ -32,7 +32,7 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
   def test_encode_when_last_byte_have_8_bits
     binary, last_byte_bits, mapping = HuffmanCoding.encode('A short test.'.each_char)
 
-    assert_equal [54, 136, 66, 119, 86], binary.bytes
+    assert_equal "6\x88BwV".force_encoding('BINARY'), binary
     assert_equal 8, last_byte_bits
 
     expected_mapping = {
@@ -54,7 +54,7 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
   def test_encode_with_only_one_kind_of_char
     binary, last_byte_bits, mapping = HuffmanCoding.encode('TTT'.each_char)
 
-    assert_equal [0], binary.bytes
+    assert_equal "\000".force_encoding('BINARY'), binary
     assert_equal 3, last_byte_bits
 
     expected_mapping = { 'T' => '0' }.freeze
