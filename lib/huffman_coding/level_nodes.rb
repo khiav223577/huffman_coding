@@ -20,8 +20,4 @@ class LevelNodes
     @hash[level].sort!
     @size += 1
   end
-
-  def size
-    @size
-  end
 end

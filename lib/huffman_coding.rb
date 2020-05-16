@@ -47,7 +47,7 @@ class << HuffmanCoding
   def build_tree(frequencies)
     level_nodes = LevelNodes.new(frequencies.map{|letter, frequency| Node.new(letter, frequency) })
 
-    while level_nodes.size > 1 do
+    while level_nodes.size > 1
       left_level, left_node = level_nodes.pop_min_node
       right_level, right_node = level_nodes.pop_min_node
       next_level = (left_level > right_level ? left_level : right_level) + 1
