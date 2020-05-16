@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class HuffmanCodingTest < Minitest::Test # huffman_coding
@@ -24,7 +26,7 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
         'A' => '111',
       }.freeze
     else
-      expected_binary = "\xFA\xC6\x88\x00".force_encoding('BINARY')
+      expected_binary = String.new("\xFA\xC6\x88\x00").force_encoding('BINARY').freeze
       expected_mapping = {
         'A' => '111',
         'B' => '110',
@@ -61,7 +63,7 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
         'h' => '111',
       }.freeze
     else
-      expected_binary = "6\x88BwV".force_encoding('BINARY')
+      expected_binary = String.new("6\x88BwV").force_encoding('BINARY').freeze
       expected_mapping = {
         'e' => '111',
         '.' => '110',
@@ -89,7 +91,7 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
       expected_binary = "\000"
       expected_mapping = { 'T' => '0' }.freeze
     else
-      expected_binary = "\000".force_encoding('BINARY')
+      expected_binary = String.new("\000").force_encoding('BINARY').freeze
       expected_mapping = { 'T' => '0' }.freeze
     end
 

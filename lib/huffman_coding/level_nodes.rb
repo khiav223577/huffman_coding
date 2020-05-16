@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LevelNodes
   attr_reader :size
 
