@@ -42,4 +42,3 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
     assert_equal 'TTT', HuffmanCoding.decode(binary, last_byte_bits, expected_mapping)
   end
 end
-

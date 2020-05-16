@@ -10,7 +10,6 @@ module Enumerable
   end
 end
 
-
 class << HuffmanCoding
   def encode(input_array, frequencies = input_array.tally)
     if frequencies.size == 1
