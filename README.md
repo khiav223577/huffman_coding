@@ -25,6 +25,29 @@ Or install it yourself as:
 
 ## Usage
 
+### Encode
+```rb
+binary, last_byte_bits, mapping = HuffmanCoding.encode('A short test.'.each_char)
+binary
+# => "6\x88BwV"
+
+last_byte_bits
+# => 8
+
+mapping
+# => {"e"=>"111", "."=>"110", "t"=>"10", " "=>"011", "s"=>"010", "A"=>"0011", "h"=>"0010", "o"=>"0001", "r"=>"0000"}
+```
+
+### Decode
+```rb
+binary = "6\x88BwV"
+last_byte_bits = 8
+mapping = {"e"=>"111", "."=>"110", "t"=>"10", " "=>"011", "s"=>"010", "A"=>"0011", "h"=>"0010", "o"=>"0001", "r"=>"0000"}
+
+HuffmanCoding.decode(binary, last_byte_bits, mapping)
+# => 'A short test.'
+```
+
 
 ## Development
 
