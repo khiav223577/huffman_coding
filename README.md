@@ -27,24 +27,21 @@ Or install it yourself as:
 
 ### Encode
 ```rb
-binary, last_byte_bits, mapping = HuffmanCoding.encode('A short test.'.each_char)
-binary
+coding = HuffmanCoding.encode('A short test.'.each_char)
+coding.binary
 # => "6\x88BwV"
 
-last_byte_bits
+coding.last_byte_bits
 # => 8
 
-mapping
+coding.code_table
 # => {"e"=>"111", "."=>"110", "t"=>"10", " "=>"011", "s"=>"010", "A"=>"0011", "h"=>"0010", "o"=>"0001", "r"=>"0000"}
 ```
 
 ### Decode
 ```rb
-binary = "6\x88BwV"
-last_byte_bits = 8
-mapping = {"e"=>"111", "."=>"110", "t"=>"10", " "=>"011", "s"=>"010", "A"=>"0011", "h"=>"0010", "o"=>"0001", "r"=>"0000"}
-
-HuffmanCoding.decode(binary, last_byte_bits, mapping)
+coding = HuffmanCoding.new("6\x88BwV", 8 "e"=>"111", "."=>"110", "t"=>"10", " "=>"011", "s"=>"010", "A"=>"0011", "h"=>"0010", "o"=>"0001", "r"=>"0000")
+HuffmanCoding.decode(coding)
 # => 'A short test.'
 ```
 
