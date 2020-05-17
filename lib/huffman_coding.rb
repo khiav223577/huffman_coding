@@ -5,6 +5,18 @@ require 'huffman_coding/level_nodes'
 require 'huffman_coding/node'
 require 'huffman_coding/utils/tally'
 
+class HuffmanCoding
+  attr_reader :binary
+  attr_reader :last_byte_bits
+  attr_reader :code_table
+
+  def initialize(binary, last_byte_bits, code_table)
+    @binary = binary
+    @last_byte_bits = last_byte_bits
+    @code_table = code_table.freeze
+  end
+end
+
 class << HuffmanCoding
   def encode(input_array, frequencies = HuffmanCoding::Utils.tally(input_array))
     if frequencies.size == 1
@@ -18,12 +30,12 @@ class << HuffmanCoding
     last_byte_bits = result_binary_string.size % 8
     last_byte_bits = 8 if last_byte_bits == 0
     binary = result_binary_string.scan(/.{1,8}/).map{|s| s.to_i(2) }.pack('C*')
-    return binary, last_byte_bits, code_table
+    return new(binary, last_byte_bits, code_table)
   end
 
-  def decode(binary, last_byte_bits, code_table)
+  def decode(coding)
     text = String.new
-    code_table = code_table.invert
+    code_table = coding.code_table.invert
     previous = String.new
 
     add_binary_char = proc do |binary_char|
@@ -34,7 +46,7 @@ class << HuffmanCoding
       end
     end
 
-    bytes = binary.bytes.map{|s| s.to_s(2) } # bytes = ['101000', '11', '10101111', ...]
+    bytes = coding.binary.bytes.map{|s| s.to_s(2) } # bytes = ['101000', '11', '10101111', ...]
     last_byte = bytes.pop
 
     bytes.each do |byte|
@@ -42,7 +54,7 @@ class << HuffmanCoding
       byte.each_char{|s| add_binary_char[s] }
     end
 
-    (last_byte_bits - last_byte.size).times{ add_binary_char['0'] }
+    (coding.last_byte_bits - last_byte.size).times{ add_binary_char['0'] }
     last_byte.each_char{|s| add_binary_char[s] }
 
     return text

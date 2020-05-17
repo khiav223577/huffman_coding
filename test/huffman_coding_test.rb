@@ -11,11 +11,11 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
   end
 
   def test_encode
-    binary, last_byte_bits, mapping = HuffmanCoding.encode('ABCDEFGHH'.each_char)
+    coding = HuffmanCoding.encode('ABCDEFGHH'.each_char)
 
     if RUBY_VERSION < '2'
       expected_binary = "\355\031p\000"
-      expected_mapping = {
+      expected_code_table = {
         'H' => '000',
         'D' => '001',
         'C' => '010',
@@ -27,7 +27,7 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
       }.freeze
     else
       expected_binary = String.new("\xFA\xC6\x88\x00").force_encoding('BINARY').freeze
-      expected_mapping = {
+      expected_code_table = {
         'A' => '111',
         'B' => '110',
         'C' => '101',
@@ -39,19 +39,19 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
       }.freeze
     end
 
-    assert_equal expected_binary, binary
-    assert_equal 3, last_byte_bits
-    assert_equal expected_mapping, mapping
+    assert_equal expected_binary, coding.binary
+    assert_equal 3, coding.last_byte_bits
+    assert_equal expected_code_table, coding.code_table
 
-    assert_equal 'ABCDEFGHH', HuffmanCoding.decode(binary, last_byte_bits, mapping)
+    assert_equal 'ABCDEFGHH', HuffmanCoding.decode(coding)
   end
 
   def test_encode_when_last_byte_have_8_bits
-    binary, last_byte_bits, mapping = HuffmanCoding.encode('A short test.'.each_char)
+    coding = HuffmanCoding.encode('A short test.'.each_char)
 
     if RUBY_VERSION < '2'
       expected_binary = "\024\376\tD\343"
-      expected_mapping = {
+      expected_code_table = {
         'r' => '0000',
         'A' => '0001',
         'e' => '0010',
@@ -64,7 +64,7 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
       }.freeze
     else
       expected_binary = String.new("6\x88BwV").force_encoding('BINARY').freeze
-      expected_mapping = {
+      expected_code_table = {
         'e' => '111',
         '.' => '110',
         't' => '10',
@@ -77,28 +77,28 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
       }.freeze
     end
 
-    assert_equal expected_binary, binary
-    assert_equal 8, last_byte_bits
-    assert_equal expected_mapping, mapping
+    assert_equal expected_binary, coding.binary
+    assert_equal 8, coding.last_byte_bits
+    assert_equal expected_code_table, coding.code_table
 
-    assert_equal 'A short test.', HuffmanCoding.decode(binary, last_byte_bits, mapping)
+    assert_equal 'A short test.', HuffmanCoding.decode(coding)
   end
 
   def test_encode_with_only_one_kind_of_char
-    binary, last_byte_bits, mapping = HuffmanCoding.encode('TTT'.each_char)
+    coding = HuffmanCoding.encode('TTT'.each_char)
 
     if RUBY_VERSION < '2'
       expected_binary = "\000"
-      expected_mapping = { 'T' => '0' }.freeze
+      expected_code_table = { 'T' => '0' }.freeze
     else
       expected_binary = String.new("\000").force_encoding('BINARY').freeze
-      expected_mapping = { 'T' => '0' }.freeze
+      expected_code_table = { 'T' => '0' }.freeze
     end
 
-    assert_equal expected_binary, binary
-    assert_equal 3, last_byte_bits
-    assert_equal expected_mapping, mapping
+    assert_equal expected_binary, coding.binary
+    assert_equal 3, coding.last_byte_bits
+    assert_equal expected_code_table, coding.code_table
 
-    assert_equal 'TTT', HuffmanCoding.decode(binary, last_byte_bits, expected_mapping)
+    assert_equal 'TTT', HuffmanCoding.decode(coding)
   end
 end
