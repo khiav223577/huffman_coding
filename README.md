@@ -40,7 +40,7 @@ coding.code_table
 
 ### Decode
 ```rb
-coding = HuffmanCoding.new("6\x88BwV", 8 "e"=>"111", "."=>"110", "t"=>"10", " "=>"011", "s"=>"010", "A"=>"0011", "h"=>"0010", "o"=>"0001", "r"=>"0000")
+coding = HuffmanCoding.new("6\x88BwV", 8, "e"=>"111", "."=>"110", "t"=>"10", " "=>"011", "s"=>"010", "A"=>"0011", "h"=>"0010", "o"=>"0001", "r"=>"0000")
 HuffmanCoding.decode(coding)
 # => 'A short test.'
 ```
