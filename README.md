@@ -1,7 +1,7 @@
 # huffman_coding
 
 [![Gem Version](https://img.shields.io/gem/v/huffman_coding.svg?style=flat)](http://rubygems.org/gems/huffman_coding)
-[![Build Status](https://travis-ci.com/khiav223577/huffman_coding.svg?branch=master)](https://travis-ci.org/khiav223577/huffman_coding)
+[![Build Status](https://travis-ci.com/khiav223577/huffman_coding/workflows/Ruby/badge.svg)](https://github.com/khiav223577/huffman_coding/actions)
 [![RubyGems](http://img.shields.io/gem/dt/huffman_coding.svg?style=flat)](http://rubygems.org/gems/huffman_coding)
 [![Code Climate](https://codeclimate.com/github/khiav223577/huffman_coding/badges/gpa.svg)](https://codeclimate.com/github/khiav223577/huffman_coding)
 [![Test Coverage](https://codeclimate.com/github/khiav223577/huffman_coding/badges/coverage.svg)](https://codeclimate.com/github/khiav223577/huffman_coding/coverage)
