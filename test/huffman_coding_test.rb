@@ -13,7 +13,7 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
   def test_encode
     coding = HuffmanCoding.encode('ABCDEFGHH'.each_char)
 
-    if RUBY_VERSION < '2'
+    if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2')
       expected_binary = "\355\031p\000"
       expected_code_table = {
         'H' => '000',
@@ -49,7 +49,7 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
   def test_encode_when_last_byte_have_8_bits
     coding = HuffmanCoding.encode('A short test.'.each_char)
 
-    if RUBY_VERSION < '2'
+    if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2')
       expected_binary = "\024\376\tD\343"
       expected_code_table = {
         'r' => '0000',
@@ -87,7 +87,7 @@ class HuffmanCodingTest < Minitest::Test # huffman_coding
   def test_encode_with_only_one_kind_of_char
     coding = HuffmanCoding.encode('TTT'.each_char)
 
-    if RUBY_VERSION < '2'
+    if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2')
       expected_binary = "\000"
       expected_code_table = { 'T' => '0' }.freeze
     else
