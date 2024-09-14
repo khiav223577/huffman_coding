@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'huffman_coding'
   spec.version       = HuffmanCoding::VERSION # huffman_coding
   spec.authors       = ['khiav reoy']
-  spec.email         = ['mrtmrt15xn@yahoo.com.tw']
+  spec.email         = ['khiav223577@gmail.com']
 
   spec.summary       = 'A ruby gem that implements Huffman Coding.'
   spec.description   = 'A ruby gem that implements Huffman Coding.'
